@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CSharpBackEnd.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,6 +33,7 @@ namespace CSharpBackEnd
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "CSharpBackEnd", Version = "v1"});
             });
+            services.AddDbContext<ApiContext>(options => options.UseInMemoryDatabase(databaseName: "LibraryDB"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
