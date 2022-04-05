@@ -10,6 +10,6 @@ namespace CSharpBackEnd.Domain
         public Uri ImageUrl { get; set; }
         public Genre Genre { get; set; }
         public List<Author> Author {get; set; }
-        public List<PublishingCompany> Company { get; set; }
+        public PublishingCompany Company { get; set; }
     }
 }

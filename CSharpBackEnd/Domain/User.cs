@@ -8,7 +8,7 @@ namespace CSharpBackEnd.Domain
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public EmailAddressAttribute Email { get; set; }
+        public string Email { get; set; }
         public string Cpf { get; set; }
         public List<Loan> Loans { get; set; } 
     }
