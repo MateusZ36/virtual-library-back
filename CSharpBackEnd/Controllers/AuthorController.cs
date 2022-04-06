@@ -9,48 +9,48 @@ namespace CSharpBackEnd.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : Controller
+    public class AuthorController : Controller
     {
         private readonly ApiContext _context;
 
-        public UserController(ApiContext context)
+        public AuthorController(ApiContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUser()
+        public async Task<ActionResult<IEnumerable<Author>>> GetAuthor()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Authors.ToListAsync();
         }
 
 
-        // GET: api/User/5
+        // GET: api/Author/5
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<Author>> GetAuthor(int id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var author = await _context.Authors.FindAsync(id);
 
-            if (user == null)
+            if (author == null)
             {
                 return NotFound();
             }
 
-            return user;
+            return author;
         }
 
-        // PUT: api/User/5
+        // PUT: api/Author/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User user)
+        public async Task<IActionResult> PutAuthor(int id, Author author)
         {
-            if (id != user.Id)
+            if (id != author.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(user).State = EntityState.Modified;
+            _context.Entry(author).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace CSharpBackEnd.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (!AuthorExists(id))
                 {
                     return NotFound();
                 }
@@ -71,37 +71,37 @@ namespace CSharpBackEnd.Controllers
             return NoContent();
         }
 
-        // POST: api/User
+        // POST: api/Author
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public async Task<ActionResult<Author>> PostAuthor(Author author)
         {
-            _context.Users.Add(user);
+            _context.Authors.Add(author);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            return CreatedAtAction("GetAuthor", new { id = author.Id }, author);
         }
 
-        // DELETE: api/User/5
+        // DELETE: api/Author/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<User>> DeleteUser(int id)
+        public async Task<ActionResult<Author>> DeleteAuthor(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var author = await _context.Authors.FindAsync(id);
+            if (author == null)
             {
                 return NotFound();
             }
 
-            _context.Users.Remove(user);
+            _context.Authors.Remove(author);
             await _context.SaveChangesAsync();
 
-            return user;
+            return author;
         }
 
-        private bool UserExists(int id)
+        private bool AuthorExists(int id)
         {
-            return _context.Users.Any(e => e.Id == id);
+            return _context.Authors.Any(e => e.Id == id);
         }
     }
 }
