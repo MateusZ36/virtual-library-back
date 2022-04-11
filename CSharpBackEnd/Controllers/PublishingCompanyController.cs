@@ -25,7 +25,6 @@ namespace CSharpBackEnd.Controllers
         }
 
 
-        // GET: api/PublishingCompany/5
         [HttpGet("{id:int}")]
         public async Task<ActionResult<PublishingCompany>> GetPublishingCompany(int id)
         {
@@ -39,9 +38,6 @@ namespace CSharpBackEnd.Controllers
             return company;
         }
 
-        // PUT: api/PublishingCompany/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPublishingCompany(int id, PublishingCompany company)
         {
@@ -71,9 +67,6 @@ namespace CSharpBackEnd.Controllers
             return NoContent();
         }
 
-        // POST: api/PublishingCompany
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
         public async Task<ActionResult<PublishingCompany>> PostPublishingCompany(PublishingCompany company)
         {
@@ -83,7 +76,6 @@ namespace CSharpBackEnd.Controllers
             return CreatedAtAction("GetPublishingCompany", new { id = company.Id }, company);
         }
 
-        // DELETE: api/PublishingCompany/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<PublishingCompany>> DeletePublishingCompany(int id)
         {

@@ -25,7 +25,6 @@ namespace CSharpBackEnd.Controllers
         }
 
 
-        // GET: api/Book/5
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Book>> GetBook(int id)
         {
@@ -39,9 +38,6 @@ namespace CSharpBackEnd.Controllers
             return book;
         }
 
-        // PUT: api/Book/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBook(int id, Book book)
         {
@@ -71,9 +67,6 @@ namespace CSharpBackEnd.Controllers
             return NoContent();
         }
 
-        // POST: api/Book
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
         public async Task<ActionResult<Book>> PostBook(Book book)
         {
@@ -83,7 +76,6 @@ namespace CSharpBackEnd.Controllers
             return CreatedAtAction("GetBook", new { id = book.Id }, book);
         }
 
-        // DELETE: api/Book/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Book>> DeleteBook(int id)
         {

@@ -25,7 +25,6 @@ namespace CSharpBackEnd.Controllers
         }
 
 
-        // GET: api/Loan/5
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Loan>> GetLoan(int id)
         {
@@ -39,9 +38,6 @@ namespace CSharpBackEnd.Controllers
             return loan;
         }
 
-        // PUT: api/Loan/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutLoan(int id, Loan loan)
         {
@@ -71,9 +67,6 @@ namespace CSharpBackEnd.Controllers
             return NoContent();
         }
 
-        // POST: api/Loan
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
         public async Task<ActionResult<Loan>> PostLoan(Loan loan)
         {
@@ -83,7 +76,6 @@ namespace CSharpBackEnd.Controllers
             return CreatedAtAction("GetLoan", new { id = loan.Id }, loan);
         }
 
-        // DELETE: api/Loan/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Loan>> DeleteLoan(int id)
         {

@@ -25,7 +25,6 @@ namespace CSharpBackEnd.Controllers
         }
 
 
-        // GET: api/Genre/5
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Genre>> GetGenre(int id)
         {
@@ -39,9 +38,6 @@ namespace CSharpBackEnd.Controllers
             return genre;
         }
 
-        // PUT: api/Genre/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutGenre(int id, Genre genre)
         {
@@ -71,9 +67,6 @@ namespace CSharpBackEnd.Controllers
             return NoContent();
         }
 
-        // POST: api/Genre
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
         public async Task<ActionResult<Genre>> PostGenre(Genre genre)
         {
@@ -83,7 +76,6 @@ namespace CSharpBackEnd.Controllers
             return CreatedAtAction("GetGenre", new { id = genre.Id }, genre);
         }
 
-        // DELETE: api/Genre/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Genre>> DeleteGenre(int id)
         {
